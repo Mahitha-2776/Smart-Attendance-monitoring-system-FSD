@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AttendIQ - Login | Smart Attendance System</title>
+  <meta name="description" content="Role-based attendance monitoring system for educational institutions">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-card animate-fade-in">
+      <div class="login-logo">
+        <h1>AttendIQ</h1>
+        <p>Smart Attendance Monitoring System</p>
+      </div>
+
+      <div id="error-message" class="error-message hidden"></div>
+
+      <form id="login-form">
+        <div class="form-group">
+          <label for="userId">User ID</label>
+          <input 
+            type="text" 
+            id="userId" 
+            name="userId" 
+            placeholder="Enter your User ID"
+            autocomplete="username"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            required
+          >
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+              d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
+          </svg>
+          Sign In
+        </button>
+      </form>
+
+      <div class="login-demo">
+        <h3>Demo Credentials</h3>
+        <div class="demo-credentials">
+          <div class="demo-user">
+            <span>Student Account</span>
+            <code>STU001 / student123</code>
+          </div>
+          <div class="demo-user">
+            <span>Admin Account</span>
+            <code>admin / admin123</code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    // Initialize theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      document.body.classList.add('light-theme');
+    }
+
+    // Check if already logged in
+    if (Auth.init()) {
+      Auth.redirectToDashboard();
+    }
+
+    // Handle form submission
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const userId = document.getElementById('userId').value.trim();
+      const password = document.getElementById('password').value;
+      const errorEl = document.getElementById('error-message');
+      
+      const result = Auth.login(userId, password);
+      
+      if (result.success) {
+        Auth.redirectToDashboard();
+      } else {
+        errorEl.textContent = result.message;
+        errorEl.classList.remove('hidden');
+        
+        // Shake animation
+        const card = document.querySelector('.login-card');
+        card.style.animation = 'none';
+        card.offsetHeight; // Trigger reflow
+        card.style.animation = 'shake 0.5s ease';
+      }
+    });
+
+    // Add shake animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+        20%, 40%, 60%, 80% { transform: translateX(5px); }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
