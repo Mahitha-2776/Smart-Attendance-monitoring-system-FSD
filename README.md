@@ -1,6 +1,4 @@
-[README.md](https://github.com/user-attachments/files/27102879/README.md)
-# Smart-Attendance-monitoring-system-FSD
-A role-based student attendance management system built with HTML, CSS, and JavaScript — no backend framework or database required.
+[README (2).md](https://github.com/user-attachments/files/27103191/README.2.md)
 # 🎓 Smart Attendance Monitoring System – FSD Lab Project
 
 ![repo size](https://img.shields.io/github/repo-size/Mahitha-2776/Smart-Attendance-monitoring-system-FSD)
@@ -52,21 +50,18 @@ It simulates a real-world attendance management system with role-based access fo
 
 ```
 Smart-Attendance-monitoring-system-FSD/
-├── public/
-│   └── attendance-system/
-│       ├── index.html
-│       ├── admin-dashboard.html
-│       ├── student-dashboard.html
-│       ├── css/
-│       │   └── styles.css
-│       └── js/
-│           ├── data.js
-│           ├── auth.js
-│           ├── admin.js
-│           ├── student.js
-│           └── charts.js
-├── README.md
-└── b_Rq0qg5OM5JC.zip
+├── index.html
+├── admin-dashboard.html
+├── student-dashboard.html
+├── css/
+│   └── styles.css
+├── js/
+│   ├── data.js
+│   ├── auth.js
+│   ├── admin.js
+│   ├── student.js
+│   └── charts.js
+└── README.md
 ```
 
 ---
@@ -84,7 +79,7 @@ cd Smart-Attendance-monitoring-system-FSD
 ```
 
 3. Run the project:
-- Open `public/attendance-system/index.html` in your browser
+- Open `index.html` in your browser
 
 ---
 
@@ -97,6 +92,7 @@ cd Smart-Attendance-monitoring-system-FSD
 | Student | STU002   | student123   |
 
 ---
+
 ## 👥 Team Members
 
 - **K. Mahitha** – Frontend Developer & UI Design
