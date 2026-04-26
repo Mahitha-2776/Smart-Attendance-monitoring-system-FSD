@@ -97,7 +97,9 @@ cd Smart-Attendance-monitoring-system-FSD
 | Student | STU002   | student123   |
 
 ---
-
 ## 👥 Team Members
 
-- **Mahitha** – Project Lead & Frontend UI
+- **K. Mahitha** – Frontend Developer & UI Design
+- **S. Divya Sri** – UI Design & Styling
+- **Surekha** – Testing & Documentation
+- **Jaswanth** – JavaScript & Data
